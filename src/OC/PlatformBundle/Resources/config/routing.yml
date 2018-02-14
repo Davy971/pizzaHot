@@ -1,22 +1,8 @@
-
-oc_platform_home:
-    path:      /
-    defaults: { _controller: OCPlatformBundle:Advert:index }
+oc_pizzeria_home:
+    path:      /pizzeria
+    defaults: { _controller: OCPlatformBundle:Accueil:menu }
     
-oc_platform_view:
-    path:      //advert/{id}
-    defaults: { _controller: OCPlatformBundle:Advert:view }
-    
-oc_platform_add:
-    path:      //add
-    defaults: { _controller: OCPlatformBundle:Advert:add }
+oc_pizzeria_ingredient:
+    path:      /pizzeria/advert/menu
+    defaults: { _controller: OCPlatformBundle:Accueil:menu }
 
-
-oc_platform_view_slug:
-    path:      //{year}/{slug}.{format}
-    defaults:
-        _controller: OCPlatformBundle:Advert:viewSlug
-        _format: html
-    requirements: 
-        year: \d{4}
-        format: html|xml
