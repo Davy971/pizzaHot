@@ -15,7 +15,12 @@ class AccueilController extends Controller
          return new Response($content);
 
       }
-  
+
+      
+    public function ingredientAction()
+    {
+      
+    }  
    
 
 }

@@ -1,0 +1,13 @@
+<html>
+<body>
+<h1> Ma liste d'ingrédients </h1>
+
+<ul>
+{%for ing in ingredients  %}
+	<li> {{ing.name}} </li>
+{%endfor  %}
+</ul>
+
+<a href="{{path('oc_pizzeria_ingredient_add')}}"> Ajouter un ingrédient </a>
+</body>
+<html>
