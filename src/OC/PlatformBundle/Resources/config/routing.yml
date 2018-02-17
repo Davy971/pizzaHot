@@ -22,3 +22,11 @@ oc_pizzeria_ingredient_index:
 oc_pizzeria_gamme_add:
     path:      /pizzeria/gamme/add/
     defaults: { _controller: OCPlatformBundle:Gamme:add }
+    
+oc_pizzeria_gamme_index:
+    path:      /pizzeria/gamme/
+    defaults: { _controller: OCPlatformBundle:Gamme:index }
+    
+oc_pizzeria_gamme_edit:
+    path:      /pizzeria/ingredient/edit/{id}
+    defaults: { _controller: OCPlatformBundle:Gamme:edit }

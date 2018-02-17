@@ -13,8 +13,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 class GammeController extends Controller
 {
-    public function ajouterAction()
-      {
+    public function ajouterAction(Request $request)
+    {
         $gamme = new Gamme();
     	
     	$form= $this->get('form.factory')->createBuilder(FormType::class,$gamme)
@@ -32,14 +32,46 @@ class GammeController extends Controller
 
     		return $this->redirectToRoute('oc_pizzeria_gamme_index');
       }
+	}
       public function supprimerAction()
       {
 
       }
-      public function updateAction()
+	  
+	  
+	  
+      public function editAction($id, Request $request)
       {
+		  
 
-      }
+	  
+		$em = $this->getDoctrine()->getManager();
+
+		$gamme = $em->getRepository('OCPlatformBundle:Gamme')->find($id);
+
+		if (null === $ingredient) {
+			throw new NotFoundHttpException("La gamme d'id ".$id." n'existe pas.");
+		}
+
+		$form= $this->get('form.factory')->createBuilder(FormType::class,$gamme)
+    		->add('name', TextType::class)
+    		->add('save', SubmitType::class)
+    		->getForm();
+
+		if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+			// Inutile de persister ici, Doctrine connait déjà notre annonce
+			$em->flush();
+
+			$request->getSession()->getFlashBag()->add('notice', 'Gamme bien modifiée.');
+
+			return $this->redirectToRoute('oc_pizzeria_gamme_index', array('id' => $gamme->getId()));
+		}
+
+		return $this->render('OCPlatformBundle:Gamme:edit.html.twig', array(
+		'gamme' => $gamme,
+		'form'   => $form->createView(),
+		));
+    }
 
       public function indexAction()
 	  {
