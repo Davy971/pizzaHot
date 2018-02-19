@@ -14,10 +14,11 @@ use Symfony\Component\HttpFoundation\Request;
 class GammeController extends Controller
 {
     public function ajouterAction(Request $request)
+	
     {
         $gamme = new Gamme();
     	
-    	$form= $this->get('form.factory')->createBuilder(FormType::class,$gamme)
+    	$form= $this->get('form.factory')->createBuilder(FormType::class,$gamme)//Création du formulaire.
     		->add('name', TextType::class)
     		->add('save', SubmitType::class)
     		->getForm();
