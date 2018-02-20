@@ -1,0 +1,13 @@
+<html>
+<body>
+<h1> Ma liste de gammes </h1>
+
+<ul>
+{%for ing in gammes  %}
+	<li> {{ing.name}} </li>
+{%endfor  %}
+</ul>
+
+<a href="{{path('oc_pizzeria_gamme_add')}}"> Ajouter un ingrédient </a>
+</body>
+<html>
