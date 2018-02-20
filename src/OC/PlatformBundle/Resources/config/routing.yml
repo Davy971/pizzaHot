@@ -15,9 +15,7 @@ oc_pizzeria_ingredient_edit:
     path:      /pizzeria/ingredient/edit/{id}
     defaults: { _controller: OCPlatformBundle:Ingredient:edit }
     
-oc_pizzeria_ingredient_index:
-    path:      /pizzeria/gamme/
-    defaults: { _controller: OCPlatformBundle:Gamme:index }
+
     
 oc_pizzeria_gamme_add:
     path:      /pizzeria/gamme/add/
@@ -28,5 +26,20 @@ oc_pizzeria_gamme_index:
     defaults: { _controller: OCPlatformBundle:Gamme:index }
     
 oc_pizzeria_gamme_edit:
-    path:      /pizzeria/ingredient/edit/{id}
+    path:      /pizzeria/gamme/edit/{id}
     defaults: { _controller: OCPlatformBundle:Gamme:edit }
+
+
+
+
+oc_pizzeria_produit_index:
+    path:      /pizzeria/produit/
+    defaults: { _controller: OCPlatformBundle:Produit:index }
+    
+oc_pizzeria_produit_add:
+    path:      /pizzeria/produit/add/
+    defaults: { _controller: OCPlatformBundle:Produit:add }
+    
+oc_pizzeria_produit_edit:
+    path:      /pizzeria/produit/edit/{id}
+    defaults: { _controller: OCPlatformBundle:Produit:edit }

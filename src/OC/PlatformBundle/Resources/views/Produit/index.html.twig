@@ -1,0 +1,13 @@
+<html>
+<body>
+<h1> Ma liste de produits </h1>
+
+<ul>
+{%for ing in produits  %}
+	<li> {{ing.name}} </li>
+{%endfor  %}
+</ul>
+
+<a href="{{path('oc_pizzeria_produit_add')}}"> Ajouter d'un produit </a>
+</body>
+<html>
