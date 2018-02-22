@@ -22,7 +22,7 @@ class IngredientController extends Controller
 
     	dump($ingredients);
 
-        return $this->render('OCPlatformBundle:Ingredient:index.html.twig',array ('ingredients' => $ingredients);
+        return $this->render('OCPlatformBundle:Ingredient:index.html.twig',array ('ingredients' => $ingredients));
     }
 
     public function addAction(Request $request)
