@@ -75,9 +75,7 @@ class GammeController extends Controller
 		));
     }
 
-      public function indexAction()
-	  {
-		$repository = $this->getDoctrine()->getManager()->getRepository('OCPlatformBundle:Gamme');
+      
 
     $gammes = $repository->findAll();
 

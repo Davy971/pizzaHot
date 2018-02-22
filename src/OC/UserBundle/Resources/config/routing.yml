@@ -1,0 +1,3 @@
+oc_pizzeria_ingredient_index:
+    path:      /pizzeria/login/
+    defaults: { _controller: OCUserBundle:Security:login }
