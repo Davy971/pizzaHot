@@ -74,9 +74,7 @@ class GammeController extends Controller
 		'form'   => $form->createView(),
 		));
     }
-
-      
-
+    
     $gammes = $repository->findAll();
 
     dump($gammes);
