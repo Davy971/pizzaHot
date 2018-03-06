@@ -1,0 +1,94 @@
+<?php
+
+namespace OC\PlatformBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * Panier
+ *
+ * @ORM\Table(name="panier")
+ * @ORM\Entity(repositoryClass="OC\PlatformBundle\Repository\PanierRepository")
+ */
+class Panier
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+   /**
+    * @ORM\OneToMany(targetEntity="OC\PlatformBundle\Entity\PanierProduit", cascade={"persist"}, mappedBy = "panier")
+     */
+    private $panierproduits;
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set panierproduits
+     *
+     * @param \OC\PlatformBundle\Entity\PanierProduit $panierproduits
+     *
+     * @return Panier
+     */
+    public function setPanierproduits(\OC\PlatformBundle\Entity\PanierProduit $panierproduits = null)
+    {
+        $this->panierproduits = $panierproduits;
+
+        return $this;
+    }
+
+    /**
+     * Get panierproduits
+     *
+     * @return \OC\PlatformBundle\Entity\PanierProduit
+     */
+    public function getPanierproduits()
+    {
+        return $this->panierproduits;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->panierproduits = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->etat = 0;
+    }
+
+    /**
+     * Add panierproduit
+     *
+     * @param \OC\PlatformBundle\Entity\PanierProduit $panierproduit
+     *
+     * @return Panier
+     */
+    public function addPanierproduit(\OC\PlatformBundle\Entity\PanierProduit $panierproduit)
+    {
+        $this->panierproduits[] = $panierproduit;
+
+        return $this;
+    }
+
+    /**
+     * Remove panierproduit
+     *
+     * @param \OC\PlatformBundle\Entity\PanierProduit $panierproduit
+     */
+    public function removePanierproduit(\OC\PlatformBundle\Entity\PanierProduit $panierproduit)
+    {
+        $this->panierproduits->removeElement($panierproduit);
+    }
+}

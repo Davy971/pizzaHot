@@ -48,6 +48,12 @@ class Produit
     private $ingredients;
   
   
+  
+  
+  
+  
+   
+  
     /**
      * Get id
      *
@@ -106,22 +112,19 @@ class Produit
         return $this->prix;
     }
   
-    public function setGamme($gamme)
-    {
-        $this->gamme = $gamme;
-
-        return $this;
-    }
-
     /**
-     * Get name
+     * Get gamme
      *
-     * @return string
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getGamme()
     {
         return $this->gamme;
     }
+  
+  
+  
+  
     /**
      * Constructor
      */

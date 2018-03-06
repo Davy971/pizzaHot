@@ -1,12 +1,20 @@
 <html>
+<head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
 <body>
 <h1> Ma liste de produits </h1>
-
-<ul>
-{%for ing in produits  %}
-	<li> {{ing.name}} </li>
-{%endfor  %}
-</ul>
+<div class="row">
+	<div class="col-lg-3">
+		<ul class="list-group">
+			{%for ing in produits  %}
+				<li class="list-group-item"> <a href="{{path('oc_pizzeria_produit_view', {'id' : ing.id})}}"> {{ing.name}} </a></li>
+			{%endfor  %}
+		</ul>
+	</div>
+	<div class="col-lg-9">
+	</div>
+</div>
 
 <a href="{{path('oc_pizzeria_produit_add')}}"> Ajouter d'un produit </a>
 </body>

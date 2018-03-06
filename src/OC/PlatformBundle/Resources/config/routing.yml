@@ -28,7 +28,10 @@ oc_pizzeria_gamme_index:
 oc_pizzeria_gamme_edit:
     path:      /pizzeria/gamme/edit/{id}
     defaults: { _controller: OCPlatformBundle:Gamme:edit }
-
+    
+oc_pizzeria_gamme_view:
+    path:      /pizzeria/gamme/view/{id}
+    defaults: { _controller: OCPlatformBundle:Gamme:view }
 
 
 
@@ -43,3 +46,21 @@ oc_pizzeria_produit_add:
 oc_pizzeria_produit_edit:
     path:      /pizzeria/produit/edit/{id}
     defaults: { _controller: OCPlatformBundle:Produit:edit }
+    
+oc_pizzeria_produit_view:
+    path:      /pizzeria/produit/view/{id}
+    defaults: { _controller: OCPlatformBundle:Produit:view }
+    
+    
+    
+oc_pizzeria_panier_index:
+    path:      /pizzeria/panier/
+    defaults: { _controller: OCPlatformBundle:Panier:index }
+    
+oc_pizzeria_panier_new:
+    path:      /pizzeria/panier/new
+    defaults: { _controller: OCPlatformBundle:Panier:new }
+    
+oc_pizzeria_panier_show:
+    path:      /pizzeria/panier/show
+    defaults: { _controller: OCPlatformBundle:Panier:show }

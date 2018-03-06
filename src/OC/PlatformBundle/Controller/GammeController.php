@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class GammeController extends Controller
 {
@@ -51,7 +52,7 @@ class GammeController extends Controller
 
 		$gamme = $em->getRepository('OCPlatformBundle:Gamme')->find($id);
 
-		if (null === $ingredient) {
+		if (null === $gamme) {
 			throw new NotFoundHttpException("La gamme d'id ".$id." n'existe pas.");
 		}
 
@@ -86,6 +87,24 @@ class GammeController extends Controller
     return $this->render('OCPlatformBundle:Gamme:index.html.twig',array ('gammes' => $gammes));
 	  }
 
-   
+   public function viewAction($id)
+  {
+    $em = $this->getDoctrine()->getManager();
+
+    $gamme = $em->getRepository('OCPlatformBundle:Gamme')->find($id);
+
+    if (null === $gamme) {
+      throw new NotFoundHttpException("La gamme d'id ".$id." n'existe pas.");
+    }
+    
+    $listProduits = $em
+      ->getRepository('OCPlatformBundle:Produit')
+      ->findBy(array('gamme' => $gamme))
+    ;
+    
+    return $this->render('OCPlatformBundle:Gamme:view.html.twig', array(
+      'gamme' => $gamme,'list' =>$listProduits
+    ));
+  }
 
 }

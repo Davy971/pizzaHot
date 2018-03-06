@@ -3,19 +3,22 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<h1> Ma liste de gammes </h1>
+<h1> La Gamme : {{gamme.name}} </h1>
+
+Les Produits :
 <div class="row">
 	<div class="col-lg-3">
 		<ul class="list-group">
-			{%for ing in gammes  %}
-				<li class="list-group-item"> <a href="{{path('oc_pizzeria_gamme_view', {'id' : ing.id})}}"> {{ing.name}} </a></li>
+			{%for pro in list  %}
+				<li class="list-group-item"> <a href="{{path('oc_pizzeria_produit_view', {'id' : pro.id})}}"> {{pro.name}} </a></li>
 			{%endfor  %}
 		</ul>
 	</div>
 	<div class="col-lg-9">
 	</div>
 </div>
-
-<a href="{{path('oc_pizzeria_gamme_add')}}"> Ajouter d'une gamme </a>
 </body>
 <html>
+
+
+

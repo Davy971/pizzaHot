@@ -99,5 +99,26 @@ class ProduitController extends Controller
       'form'   => $form->createView(),
     ));
   }
+  
+  
+  
+  
+  public function viewAction($id)
+  {
+    $em = $this->getDoctrine()->getManager();
+
+    $produit = $em->getRepository('OCPlatformBundle:Produit')->find($id);
+
+    if (null === $produit) {
+      throw new NotFoundHttpException("Le produit d'id ".$id." n'existe pas.");
+    }
+    
+    $listingredients = $produit->getIngredients();
+    
+    return $this->render('OCPlatformBundle:Produit:view.html.twig', array(
+      'produit' => $produit,'list' =>$listingredients
+    ));
+  }
+  
 
 }
