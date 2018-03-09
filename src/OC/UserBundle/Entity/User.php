@@ -45,6 +45,15 @@ class User extends BaseUser
     protected $tel;
 
 
+
+
+
+    public function __construct()
+    {
+    	parent::__construct();
+    	$this->roles=array('ROLE_USER');
+    }
+
     /**
      * Set name
      *

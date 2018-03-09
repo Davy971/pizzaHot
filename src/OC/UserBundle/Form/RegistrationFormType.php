@@ -15,9 +15,23 @@ class RegistrationFormType extends AbstractType
  
          
         $builder
-        ->add('tel');
-        
-
+        ->add('tel')
+        ->add('roles', ChoiceType::class, array(
+                'attr'  =>  array('class' => 'form-control',
+                    'style' => 'margin:5px 0;'),
+                'choices' =>
+                    array
+                    (
+                            'ROLE_ADMIN' => 'ROLE_ADMIN',
+                            'ROLE_USER' => 'ROLE_USER',
+                            'ROLE_CUISINIER'=>'ROLE_CUISINIER',
+                            'ROLE_LIVREUR'=>'ROLE_LIVREUR'
+                    ) ,
+                'multiple' => true,
+                'required' => true,
+            )
+        );
+         $builder->remove('plainPassword');
     }
  
 
@@ -26,5 +40,14 @@ class RegistrationFormType extends AbstractType
         return BaseRegistrationFormType::class;
     }
 
+    public function getBlockPrefix()
+    {
+        return 'app_user_registration';
+    }
+
+    public function getName()
+    {
+        return $this->getBlockPrefix();
+    }
 
 }
