@@ -1,12 +1,11 @@
-<<<<<<< HEAD
+
 oc_platform_panier:
     resource: "@OCPlatformBundle/Controller/PanierController.php"
     type:     annotation
-=======
+
 oc_user:
     resource: "@OCUserBundle/Resources/config/routing.yml"
     prefix:   
->>>>>>> user
 
 oc_platform:
     resource: "@OCPlatformBundle/Resources/config/routing.yml"
