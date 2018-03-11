@@ -9,18 +9,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AccueilController extends Controller
 {
-    public function menuAction()
-      {
-         $content = $this->get('templating')->render('OCPlatformBundle:Accueil:menu.html.twig');
-         return new Response($content);
-
-      }
-
-      
-    public function ingredientAction()
-    {
-      
-    }  
-   
+    public function indexAction(){
+      return $this->render('OCPlatformBundle:Accueil:index.html.twig');
+    }
 
 }

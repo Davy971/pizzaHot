@@ -8,7 +8,7 @@
 	<div class="col-lg-3">
 		<ul class="list-group">
 			{%for ing in produits  %}
-				<li class="list-group-item"> <a href="{{path('oc_pizzeria_produit_view', {'id' : ing.id})}}"> {{ing.name}} </a></li>
+				<li class="list-group-item"> <a href="{{path('oc_pizzeria_produit_view', {'id' : ing.id})}}"> {{ing.name}}</a></li>
 			{%endfor  %}
 		</ul>
 	</div>

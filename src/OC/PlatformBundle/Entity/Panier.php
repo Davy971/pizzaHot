@@ -27,6 +27,14 @@ class Panier
     private $panierproduits;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="etat", type="integer")
+     */
+    private $etat;
+  
+    
+    /**
      * Get id
      *
      * @return int
@@ -90,5 +98,29 @@ class Panier
     public function removePanierproduit(\OC\PlatformBundle\Entity\PanierProduit $panierproduit)
     {
         $this->panierproduits->removeElement($panierproduit);
+    }
+
+    /**
+     * Set etat
+     *
+     * @param integer $etat
+     *
+     * @return Panier
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+    /**
+     * Get etat
+     *
+     * @return integer
+     */
+    public function getEtat()
+    {
+        return $this->etat;
     }
 }

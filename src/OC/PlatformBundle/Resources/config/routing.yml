@@ -1,6 +1,6 @@
 oc_pizzeria_home:
     path:      /pizzeria
-    defaults: { _controller: OCPlatformBundle:Accueil:menu }
+    defaults: { _controller: OCPlatformBundle:Accueil:index }
     
 
 oc_pizzeria_ingredient_index:
@@ -64,3 +64,7 @@ oc_pizzeria_panier_new:
 oc_pizzeria_panier_show:
     path:      /pizzeria/panier/show
     defaults: { _controller: OCPlatformBundle:Panier:show }
+  
+oc_pizzeria_panier_add:
+    path:      /pizzeria/panier/add/{idproduit}
+    defaults: { _controller: OCPlatformBundle:Panier:addToPanier }

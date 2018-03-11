@@ -27,6 +27,14 @@ class Panier
     private $panierproduits;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="etat", type="integer")
+     */
+    private $etat;
+  
+    
+    /**
      * Get id
      *
      * @return int
@@ -58,5 +66,37 @@ class Panier
     public function getPanierproduits()
     {
         return $this->panierproduits;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->panierproduits = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->etat = 0;
+    }
+
+    /**
+     * Add panierproduit
+     *
+     * @param \OC\PlatformBundle\Entity\PanierProduit $panierproduit
+     *
+     * @return Panier
+     */
+    public function addPanierproduit(\OC\PlatformBundle\Entity\PanierProduit $panierproduit)
+    {
+        $this->panierproduits[] = $panierproduit;
+
+        return $this;
+    }
+
+    /**
+     * Remove panierproduit
+     *
+     * @param \OC\PlatformBundle\Entity\PanierProduit $panierproduit
+     */
+    public function removePanierproduit(\OC\PlatformBundle\Entity\PanierProduit $panierproduit)
+    {
+        $this->panierproduits->removeElement($panierproduit);
     }
 }

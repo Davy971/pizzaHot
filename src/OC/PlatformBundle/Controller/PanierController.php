@@ -3,9 +3,11 @@
 namespace OC\PlatformBundle\Controller;
 
 use OC\PlatformBundle\Entity\Panier;
+use OC\PlatformBundle\Entity\PanierProduit;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Panier controller.
@@ -138,9 +140,9 @@ class PanierController extends Controller
    {
      $em = $this->getDoctrine()->getManager();
      $monPanier=$this->getDoctrine()->getRepository('OCPlatformBundle:Panier')->findOneByEtat(0);
-     if ($monpanier == null)
+     if ($monPanier == null)
      {
-       $monpanier = new Panier();
+       $monPanier = new Panier();
      }
      //Creation d'une nouvelle entite produit du panier
      $panierProduit = new PanierProduit();
@@ -150,13 +152,16 @@ class PanierController extends Controller
      $panierProduit->setProduit($monProduit);
      //association du panier au produit du panier
      $panierProduit->setPanier($monPanier);
+     $panierProduit->setEtat(0);
      
      //association du produit du panier au panier
-     $monpanier->addPanierProduit($panierProduit);
+     $monPanier->addPanierProduit($panierProduit);
      
      //Envoie du panier créé a la bdd
-     $em->persist($monpanier);
+     $em->persist($monPanier);
      $em->flush();
-     
+     return $this->redirectToRoute('oc_pizzeria_produit_view', array('id' => $idproduit));
    }
+   
+  
 }
