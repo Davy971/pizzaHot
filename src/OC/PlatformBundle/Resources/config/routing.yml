@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 oc_pizzeria_home:
     path:      /pizzeria
     defaults: { _controller: OCPlatformBundle:Accueil:index }
     
 
+=======
+>>>>>>> user
 oc_pizzeria_ingredient_index:
     path:      /pizzeria/ingredient/
     defaults: { _controller: OCPlatformBundle:Ingredient:index }
