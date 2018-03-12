@@ -1,0 +1,3 @@
+oc_pizzeria_user:
+    path:      /pizzeria/afficher/user
+    defaults: { _controller: OCUserBundle:User:index }

@@ -1,9 +1,11 @@
+<?php
+
 namespace OC\UserBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use AppBundle\Entity\User;
+use OC\UserBundle\Entity\User;
 
 /**
  * User controller.
@@ -26,7 +28,7 @@ class UserController extends Controller
     public function editAction(Request $request, User $id)
     {
 
-        $editForm = $this->createForm('AppBundle\Form\UserType', $id);
+        $editForm = $this->createForm('OC\UserBundle\Form\RegistrationFormType', $id);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -42,5 +44,5 @@ class UserController extends Controller
             'edit_form' => $editForm->createView(),
 
         ));
-
+    }
 }

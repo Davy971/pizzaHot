@@ -121,8 +121,11 @@ class Produit
     {
         return $this->gamme;
     }
-  
-  
+    public function setGamme($gamme)
+    {
+      $this->gamme =$gamme;
+      return $this;
+    }
   
   
     /**

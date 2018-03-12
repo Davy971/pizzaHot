@@ -15,7 +15,10 @@ class RegistrationFormType extends AbstractType
  
          
         $builder
+        ->add('name')
+        ->add('firstname')
         ->add('tel')
+        ->add('adress')
         ->add('roles', ChoiceType::class, array(
                 'attr'  =>  array('class' => 'form-control',
                     'style' => 'margin:5px 0;'),
@@ -31,7 +34,7 @@ class RegistrationFormType extends AbstractType
                 'required' => true,
             )
         );
-         $builder->remove('plainPassword');
+        // $builder->remove('plainPassword');
     }
  
 

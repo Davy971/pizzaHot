@@ -8,12 +8,12 @@
     <meta name="description" content="">
     
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/monrestot/web/bundles/ocplatform/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/monrestot/web/bundles/ocplatform/css/animate.min.css">
-    <link rel="stylesheet" href="/monrestot/web/bundles/ocplatform/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/monrestot/web/bundles/ocplatform/css/nivo-lightbox.css">
-    <link rel="stylesheet" href="/monrestot/web/bundles/ocplatform/css/nivo_themes/default/default.css">
-    <link rel="stylesheet" href="/monrestot/web/bundles/ocplatform/css/style.css">
+    <link rel="stylesheet" href="/Symfony/web/bundles/ocplatform/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Symfony/web/bundles/ocplatform/css/animate.min.css">
+    <link rel="stylesheet" href="/Symfony/web/bundles/ocplatform/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/Symfony/web/bundles/ocplatform/css/nivo-lightbox.css">
+    <link rel="stylesheet" href="/Symfony/web/bundles/ocplatform/css/nivo_themes/default/default.css">
+    <link rel="stylesheet" href="/Symfony/web/bundles/ocplatform/css/style.css">
     <title>{% block title %}OC Plateforme{% endblock %}</title>
   </head>
   <body>
@@ -21,6 +21,24 @@
       <section class="preloader">
         <div class="sk-spinner sk-spinner-pulse"></div>
       </section>
+       <div class="row">
+ 
+      <div id="menu" class="col-md-3">
+        <h3>Utilisateur</h3>
+ 
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+ 
+          Connecté en tant que {{ app.user.username }}
+ 
+          <br>
+ 
+          <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+ 
+        {% else %}
+ 
+          <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+        {% endif %}
+      </div>
 
       <!-- navigation section -->
       <section class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -97,13 +115,13 @@
 </section>
 
  <!-- JAVASCRIPT JS FILES -->	
-<script src="/monrestot/web/bundles/ocplatform/js/jquery.js"></script>
-<script src="/monrestot/web/bundles/ocplatform/js/bootstrap.min.js"></script>
-<script src="/monrestot/web/bundles/ocplatform/js/jquery.parallax.js"></script>
-<script src="/monrestot/web/bundles/ocplatform/js/smoothscroll.js"></script>
-<script src="/monrestot/web/bundles/ocplatform/js/nivo-lightbox.min.js"></script>
-<script src="/monrestot/web/bundles/ocplatform/js/wow.min.js"></script>
-<script src="/monrestot/web/bundles/ocplatform/js/custom.js"></script>
+<script src="/Symfony/web/bundles/ocplatform/js/jquery.js"></script>
+<script src="/Symfony/web/bundles/ocplatform/js/bootstrap.min.js"></script>
+<script src="/Symfony/web/bundles/ocplatform/js/jquery.parallax.js"></script>
+<script src="/Symfony/web/bundles/ocplatform/js/smoothscroll.js"></script>
+<script src="/Symfony/web/bundles/ocplatform/js/nivo-lightbox.min.js"></script>
+<script src="/Symfony/web/bundles/ocplatform/js/wow.min.js"></script>
+<script src="/Symfony/web/bundles/ocplatform/js/custom.js"></script>
 
   </body>
 </html>
