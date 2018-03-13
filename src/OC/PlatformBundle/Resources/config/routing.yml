@@ -53,18 +53,34 @@ oc_pizzeria_produit_view:
     
     
     
+oc_pizzeria_commande_index:
+    path:      /pizzeria/commande/
+    defaults: { _controller: OCPlatformBundle:Commande:index }
+    
+oc_pizzeria_commande_new:
+    path:      /pizzeria/commande/new
+    defaults: { _controller: OCPlatformBundle:Commande:new }
+    
+oc_pizzeria_commande_show:
+    path:      /pizzeria/commande/show
+    defaults: { _controller: OCPlatformBundle:Commande:show }
+  
+oc_pizzeria_commande_add:
+    path:      /pizzeria/commande/add/{idproduit}
+    defaults: { _controller: OCPlatformBundle:Commande:addToCommande }
+
+
+
 oc_pizzeria_panier_index:
     path:      /pizzeria/panier/
     defaults: { _controller: OCPlatformBundle:Panier:index }
-    
-oc_pizzeria_panier_new:
-    path:      /pizzeria/panier/new
-    defaults: { _controller: OCPlatformBundle:Panier:new }
-    
-oc_pizzeria_panier_show:
-    path:      /pizzeria/panier/show
-    defaults: { _controller: OCPlatformBundle:Panier:show }
-  
+
+
 oc_pizzeria_panier_add:
-    path:      /pizzeria/panier/add/{idproduit}
-    defaults: { _controller: OCPlatformBundle:Panier:addToPanier }
+    path:      /pizzeria/panier/add/{id}
+    defaults: { _controller: OCPlatformBundle:Panier:ajouter }
+
+oc_pizzeria_panier_supprimer:
+    path:      /pizzeria/panier/sup/{id}
+    defaults: { _controller: OCPlatformBundle:Panier:supprimer }
+

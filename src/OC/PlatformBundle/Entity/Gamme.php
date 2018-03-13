@@ -27,6 +27,8 @@ class Gamme
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
+    /**
+    * @ORM\OneToOne(target)
 
 
     /**

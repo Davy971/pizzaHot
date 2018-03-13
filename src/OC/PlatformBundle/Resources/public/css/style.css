@@ -12,6 +12,7 @@ body
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     position: relative;
+    margin-top: 50px;
 	}
 
 .heading {
@@ -250,7 +251,7 @@ hr {
 
 /* footer section */
 footer {
-  background: url('../images/footer-bg.jpg') 50% 0 repeat-y fixed;
+  background: url('../images/bg.jpg'), 50% 0 repeat-y fixed;
   -webkit-background-size: cover;
   background-size: cover;
   background-position: center;

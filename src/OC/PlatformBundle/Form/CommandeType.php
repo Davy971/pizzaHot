@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PanierType extends AbstractType
+class CommandeType extends AbstractType
 {
 /**
      * {@inheritdoc}
@@ -14,7 +14,7 @@ class PanierType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'OC\PlatformBundle\Entity\Panier'
+            'data_class' => 'OC\PlatformBundle\Entity\Commande'
         ));
     }
 
@@ -23,7 +23,7 @@ class PanierType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'oc_platformbundle_panier';
+        return 'oc_platformbundle_commande';
     }
 
 

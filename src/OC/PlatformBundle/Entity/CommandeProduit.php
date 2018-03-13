@@ -6,12 +6,12 @@ use Doctrine\ORM\Mapping as ORM;
 
 
 /**
- * PanierProduit
+ * CommandeProduit
  *
- * @ORM\Table(name="panierproduit")
- * @ORM\Entity(repositoryClass="OC\PlatformBundle\Repository\PanierProduitRepository")
+ * @ORM\Table(name="CommandeProduit")
+ * @ORM\Entity(repositoryClass="OC\PlatformBundle\Repository\CommandeProduitRepository")
  */
-class PanierProduit
+class CommandeProduit
 {
     /**
      * @var int
@@ -24,10 +24,10 @@ class PanierProduit
   
 
     /**
-    * @ORM\ManyToOne(targetEntity="OC\PlatformBundle\Entity\Panier", inversedBy="panierproduits")
+    * @ORM\ManyToOne(targetEntity="OC\PlatformBundle\Entity\Commande", inversedBy="commandeproduits")
     * @ORM\JoinColumn(nullable=false)
     */
-    private $panier;
+    private $commande;
   
   
    /**
@@ -60,27 +60,27 @@ class PanierProduit
     
 
     /**
-     * Set panier
+     * Set commande
      *
-     * @param \OC\PlatformBundle\Entity\Panier $panier
+     * @param \OC\PlatformBundle\Entity\Commande $commande
      *
-     * @return PanierProduit
+     * @return CommandeProduit
      */
-    public function setPanier(\OC\PlatformBundle\Entity\Panier $panier)
+    public function setCommande(\OC\PlatformBundle\Entity\Commande $commande)
     {
-        $this->panier = $panier;
+        $this->commande = $commande;
 
         return $this;
     }
 
     /**
-     * Get panier
+     * Get commande
      *
-     * @return \OC\PlatformBundle\Entity\Panier
+     * @return \OC\PlatformBundle\Entity\Commande
      */
-    public function getPanier()
+    public function getCommande()
     {
-        return $this->panier;
+        return $this->commande;
     }
 
   
@@ -89,7 +89,7 @@ class PanierProduit
      *
      * @param integer $etat
      *
-     * @return PanierProduit
+     * @return CommandeProduit
      */
     public function setEtat($etat)
     {
@@ -113,7 +113,7 @@ class PanierProduit
      *
      * @param \OC\PlatformBundle\Entity\Produit $produit
      *
-     * @return PanierProduit
+     * @return  CommandeProduit
      */
     public function setProduit(\OC\PlatformBundle\Entity\Produit $produit)
     {

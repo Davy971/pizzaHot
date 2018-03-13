@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/Symfony/web/bundles/ocplatform/css/nivo-lightbox.css">
     <link rel="stylesheet" href="/Symfony/web/bundles/ocplatform/css/nivo_themes/default/default.css">
     <link rel="stylesheet" href="/Symfony/web/bundles/ocplatform/css/style.css">
-    <title>{% block title %}OC Plateforme{% endblock %}</title>
+    <title>{% block title %}PIZZA HOT{% endblock %}</title>
   </head>
   <body>
       <!-- preloader section -->
@@ -58,6 +58,7 @@
               <li><a href="#menu" class="smoothScroll">SPECIAL MENU</a></li>
               <li><a href="#team" class="smoothScroll">CHEFS</a></li>
               <li><a href="#contact" class="smoothScroll">CONTACT</a></li>
+              <li>{{ render(controller('OCPlatformBundle:Panier:menu')) }}</li>
             </ul>
           </div>
         </div>
