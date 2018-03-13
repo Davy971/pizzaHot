@@ -1,8 +1,8 @@
-<html>
-<head>
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
-<body>
+{% extends "OCPlatformBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} Produits{% endblock %}
+
+{% block body %}
 <h1> Ma liste de produits </h1>
 <div class="row">
 	<div class="col-lg-3">
@@ -18,4 +18,4 @@
 
 <a href="{{path('oc_pizzeria_produit_add')}}"> Ajouter d'un produit </a>
 </body>
-<html>
+{% endblock %}

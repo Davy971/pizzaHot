@@ -1,9 +1,8 @@
-<html>
-<head>
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
-<body>
-<h1> La Gamme : {{gamme.name}} </h1>
+{% extends "OCPlatformBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} Gammes{% endblock %}
+
+{% block body %}<h1> La Gamme : {{gamme.name}} </h1>
 
 Les Produits :
 <div class="row">
@@ -17,8 +16,7 @@ Les Produits :
 	<div class="col-lg-9">
 	</div>
 </div>
-</body>
-<html>
+{% endblock %}
 
 
 

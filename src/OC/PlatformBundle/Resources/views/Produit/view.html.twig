@@ -1,4 +1,8 @@
-<html>
+{% extends "OCPlatformBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} Produits{% endblock %}
+
+{% block body %}
 <body>
 <h1> Le produit :  {{produit.name}}</h1>
 Les Ingredients :
@@ -8,4 +12,4 @@ Les Ingredients :
 
 <a href="{{path('oc_pizzeria_panier_add', {'idproduit' : produit.id})}}"> Ajouter au panier</a>
 </body>
-<html>
+{% endblock %}

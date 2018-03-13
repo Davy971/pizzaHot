@@ -1,10 +1,12 @@
-<html>
-<body>
+{% extends "OCPlatformBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} Gammes{% endblock %}
+
+{% block body %}
 <h1> modification d'une gamme </h1>
 
 <div class="well">
 {{form(form)}}
 </div>
 
-</body>
-<html>
+{% endblock %}
