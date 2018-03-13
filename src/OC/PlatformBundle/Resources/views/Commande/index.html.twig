@@ -11,7 +11,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for commande in commandes %}
+        {% for commande in commandes if commande.user == app.user or is_granted('ROLE_ADMIN') %}
             <tr>
                 <td><a href="{{ path('oc_pizzeria_commande_show', { 'id': commande.id }) }}">{{ commande.id }}</a></td>
                 <td>
@@ -23,6 +23,8 @@
                     </ul>
                 </td>
             </tr>
+            {% else %}
+            Aucune commande actuellement
         {% endfor %}
         </tbody>
     </table>

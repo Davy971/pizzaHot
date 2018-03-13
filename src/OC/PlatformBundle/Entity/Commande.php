@@ -33,14 +33,11 @@ class Commande
      */
     private $etat;
   
-    
     /**
-     * @var int
-     *
-     * @ORM\Column(name="idUser", type="integer")
+    * @ORM\ManyToOne(targetEntity="OC\UserBundle\Entity\User", cascade={"persist"})
      */
-    private $idUser;
-
+    private $user;
+  
 
 
     /**
@@ -133,27 +130,29 @@ class Commande
         return $this->etat;
     }
 
+  
+
     /**
-     * Set idUser
+     * Set user
      *
-     * @param integer $idUser
+     * @param \OC\UserBundle\Entity\User $user
      *
      * @return Commande
      */
-    public function setIdUser($idUser)
+    public function setUser(\OC\UserBundle\Entity\User $user = null)
     {
-        $this->idUser = $idUser;
+        $this->user = $user;
 
         return $this;
     }
 
     /**
-     * Get idUser
+     * Get user
      *
-     * @return integer
+     * @return \OC\UserBundle\Entity\User
      */
-    public function getIdUser()
+    public function getUser()
     {
-        return $this->idUser;
+        return $this->user;
     }
 }

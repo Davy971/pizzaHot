@@ -36,7 +36,7 @@ class UserController extends Controller
             $em->persist($id);
             $em->flush();
 
-            return $this->redirectToRoute('user_index');
+            return $this->redirectToRoute('oc_pizzeria_user_index');
         }
 
         return $this->render('user/edit.html.twig', array(

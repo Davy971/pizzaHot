@@ -23,25 +23,9 @@
       </section>
        <div class="row">
  
-      <div id="menu" class="col-md-3">
-        <h3>Utilisateur</h3>
- 
-        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
- 
-          Connecté en tant que {{ app.user.username }}
- 
-          <br>
- 
-          <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
- 
-        {% else %}
- 
-          <a href="{{ path('fos_user_security_login') }}">Connexion</a>
-        {% endif %}
-      </div>
 
       <!-- navigation section -->
-      <section class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -56,15 +40,42 @@
               <li><a href="{{path('oc_pizzeria_home')}}" class="smoothScroll">HOME</a></li>
               <li><a href="{{path('oc_pizzeria_gamme_index')}}" class="smoothScroll">GAMMES</a></li>
               <li><a href="#menu" class="smoothScroll">SPECIAL MENU</a></li>
-              <li><a href="#team" class="smoothScroll">CHEFS</a></li>
+               {% if is_granted("ROLE_CUISINIER") %}
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CUISINIER <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </li>
+              {% endif %}
               <li><a href="#contact" class="smoothScroll">CONTACT</a></li>
               <li>{{ render(controller('OCPlatformBundle:Panier:menu')) }}</li>
+              <li><h3>Utilisateur</h3>
+ 
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+ 
+          Connecté en tant que {{ app.user.username }}
+ 
+          <br>
+ 
+          <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+ 
+        {% else %}
+ 
+          <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+        {% endif %}
             </ul>
           </div>
         </div>
-      </section>
+      </nav>
+      <main>
     {% block body %}
     {% endblock %}
+    </main>
      <!-- footer section -->
 <footer class="parallax-section">
 	<div class="container">
@@ -106,10 +117,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-sm-12">
-				<h3>ZENTRO</h3>
-				<p>Copyright © Zentro Restaurant and Cafe 
+				<h3>PIZZA HOT</h3>
+				<p>Copyright © PIZZA HOT 
                 
-                | Design: <a rel="nofollow" href="http://www.tooplate.com" target="_parent">Tooplate</a></p>
 			</div>
 		</div>
 	</div>

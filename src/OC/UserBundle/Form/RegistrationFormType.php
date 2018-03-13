@@ -18,23 +18,7 @@ class RegistrationFormType extends AbstractType
         ->add('name')
         ->add('firstname')
         ->add('tel')
-        ->add('adress')
-        ->add('roles', ChoiceType::class, array(
-                'attr'  =>  array('class' => 'form-control',
-                    'style' => 'margin:5px 0;'),
-                'choices' =>
-                    array
-                    (
-                            'ROLE_ADMIN' => 'ROLE_ADMIN',
-                            'ROLE_USER' => 'ROLE_USER',
-                            'ROLE_CUISINIER'=>'ROLE_CUISINIER',
-                            'ROLE_LIVREUR'=>'ROLE_LIVREUR'
-                    ) ,
-                'multiple' => true,
-                'required' => true,
-            )
-        );
-        // $builder->remove('plainPassword');
+        ->add('adress');
     }
  
 

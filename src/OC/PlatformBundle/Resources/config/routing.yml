@@ -62,7 +62,7 @@ oc_pizzeria_commande_new:
     defaults: { _controller: OCPlatformBundle:Commande:new }
     
 oc_pizzeria_commande_show:
-    path:      /pizzeria/commande/show
+    path:      /pizzeria/commande/show/{id}
     defaults: { _controller: OCPlatformBundle:Commande:show }
   
 oc_pizzeria_commande_add:
@@ -83,4 +83,8 @@ oc_pizzeria_panier_add:
 oc_pizzeria_panier_supprimer:
     path:      /pizzeria/panier/sup/{id}
     defaults: { _controller: OCPlatformBundle:Panier:supprimer }
+
+oc_pizzeria_panier_valider:
+    path:      /pizzeria/panier/valider
+    defaults: { _controller: OCPlatformBundle:Panier:validation }
 

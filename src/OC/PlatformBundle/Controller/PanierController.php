@@ -67,4 +67,11 @@ class PanierController extends Controller
         return $this->render('OCPlatformBundle:Panier:index.html.twig', array('produits' => $produits,
                                                                                              'panier' => $session->get('panier')));
     }
+
+
+     public function validationAction()
+    {
+        return $this->render('OCPlatformBundle:Panier:validation.html.twig');
+    }
+
 }

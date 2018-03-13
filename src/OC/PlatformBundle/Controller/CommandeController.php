@@ -43,45 +43,47 @@ class CommandeController extends Controller
     {
         $session = $request->getSession();
         $panier = $session->get('panier');
+        $session->set('panier', array());
         $commande = new Commande();
-
-        $em = $this->getDoctrine()->getManager();
-        $produits = $em->getRepository('OCPlatformBundle:Produit')->findArray(array_keys($session->get('panier')));
-
-        foreach($panier as $key => $val)
-        {
-            for($i=0;$i<$val;$i++)
-            {
-                $comProd = new CommandeProduit();
-                $comProd.setProduit($key);
-            }
-        }
-
+        $commande->setUser($this->getUser());
 
         
 
-            return $this->redirectToRoute('commande_show', array('id' => $commande->getId()));
+        
+        $em = $this->getDoctrine()->getManager();
+        $produits = $em->getRepository('OCPlatformBundle:Produit')->findArray(array_keys($session->get('panier')));
+
+        foreach($panier as $idproduit => $quantity)
+        {
+            //dump($idproduit);
+            $produit = $em->getRepository('OCPlatformBundle:Produit')->find($idproduit);
+            //dump($produit);
+            
+            for($i=0;$i<$quantity;$i++)
+            {
+                $comProd = new CommandeProduit();
+                $comProd->setProduit($produit);
+                $comProd->setCommande($commande);
+                $comProd->setEtat(0);
+                $commande->addCommandeProduit($comProd);
+                $em->persist($comProd);
+            }
+            
         }
 
-        return $this->render('OCPlatformBundle:Commande:new.html.twig', array(
-            'commande' => $commande,
-            'form' => $form->createV,
-        ));
+        $em->persist($commande);
+        $em->flush();
+        $em->refresh($commande);
+        return $this->redirectToRoute('oc_pizzeria_commande_show', array('id' => $commande->getId()));
     }
 
-    /**
-     * Finds and displays a Commande entity.
-     *
-     * @Route("/{id}", name="commande_show")
-     * @Method("GET")
-     */
-    public function showAction(Commande $commande)
+  
+    public function showAction(Commande $commande,$id)
     {
-        $deleteForm = $this->createDeleteForm($commande);
+        $commande = $this->getDoctrine()->getRepository('OCPlatformBundle:Commande')->find($id);
 
         return $this->render('OCPlatformBundle:Commande:show.html.twig', array(
             'commande' => $commande,
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 

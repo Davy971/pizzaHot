@@ -1,3 +1,7 @@
-oc_pizzeria_user:
+oc_pizzeria_user_index:
     path:      /pizzeria/afficher/user
     defaults: { _controller: OCUserBundle:User:index }
+
+oc_pizzeria_user_edit:
+    path:      /pizzeria/afficher/user/edit/{id}
+    defaults: { _controller: OCUserBundle:User:edit}
