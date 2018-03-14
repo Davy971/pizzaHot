@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>EN PREPARATION {{comProd.produit.name}}</h1>
+	<ul>
+		<a href="{{ path('oc_pizzeria_fin_cuisinier', { 'idComProd': comProd.id }) }}">FIN DE PREPARATION</a>
+    </ul>
+{% endblock %}

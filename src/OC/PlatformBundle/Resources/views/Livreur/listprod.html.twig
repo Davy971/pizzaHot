@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Commande prod list</h1>
+
+    <table>
+        <thead>
+            
+        </thead>
+        <tbody>
+        {% for comprod in comProd %}
+            <tr>
+                <li>{{comprod.produit.name}}</li>
+            </tr>
+            {% else %}
+            Aucune commande actuellement
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

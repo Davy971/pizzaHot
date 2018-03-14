@@ -55,9 +55,9 @@ class CommandeController extends Controller
 
         foreach($panier as $idproduit => $quantity)
         {
-            //dump($idproduit);
+            
             $produit = $em->getRepository('OCPlatformBundle:Produit')->find($idproduit);
-            //dump($produit);
+            
             
             for($i=0;$i<$quantity;$i++)
             {

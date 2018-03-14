@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Commande controller.
+ * Cuisinier controller.
  *
  * @Route("commande")
  */
@@ -37,4 +37,20 @@ class CuisinierController extends Controller
             'comProd' => $comProd,
         ));
     }
+	
+	public function preparAction($id)
+	{
+		$comprod = $this->getDoctrine()->getRepository('OCPlatformBundle:CommandeProduit')->find($id);
+		$comProd->setEtat(1);
+		return $this->render('OCPlatformBundle:Cuisinier:prepar.html.twig', array(
+            'comProd' => $comProd,
+        ));
+	}
+	
+	public function finAction($idComProd)
+	{
+		$comprod = $this->getDoctrine()->getRepository('OCPlatformBundle:CommandeProduit')->find($idComProd);
+		$comProd->setEtat(2);
+		return $this->redirectToRoute('oc_pizzeria_cuisinier_index');
+	}
 }

@@ -11,6 +11,7 @@
         {% for comprod in comProd %}
             <tr>
                 <li>{{comprod.produit.name}}</li>
+				<a href="{{ path('oc_pizzeria_prepar_cuisinier', { 'id': comprod.id }) }}">A préparer</a>
             </tr>
             {% else %}
             Aucune commande actuellement

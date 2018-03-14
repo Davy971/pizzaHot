@@ -99,3 +99,18 @@ oc_pizzeria_comprod_cuisinier:
     path:      /pizzeria/comprod/cuisinier/{idCommande}
     defaults: { _controller: OCPlatformBundle:Cuisinier:select }
 
+oc_pizzeria_prepar_cuisinier:
+    path:      /pizzeria/prepar/{id}
+    defaults: { _controller: OCPlatformBundle:Cuisinier:prepar }
+    
+    
+oc_pizzeria_fin_cuisinier:
+    path:      /pizzeria/fin/cuisinier
+    defaults: { _controller: OCPlatformBundle:Cuisinier:fin }
+    
+    
+    
+oc_pizzeria_commande_livreur:
+    path:      /pizzeria/commande/livreur
+    defaults: { _controller: OCPlatformBundle:Livreur:index }
+
