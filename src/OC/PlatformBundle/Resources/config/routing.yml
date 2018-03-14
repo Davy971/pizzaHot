@@ -88,3 +88,14 @@ oc_pizzeria_panier_valider:
     path:      /pizzeria/panier/valider
     defaults: { _controller: OCPlatformBundle:Panier:validation }
 
+
+
+
+oc_pizzeria_commande_cuisinier:
+    path:      /pizzeria/commande/cuisinier
+    defaults: { _controller: OCPlatformBundle:Cuisinier:index }
+
+oc_pizzeria_comprod_cuisinier:
+    path:      /pizzeria/comprod/cuisinier/{idCommande}
+    defaults: { _controller: OCPlatformBundle:Cuisinier:select }
+
