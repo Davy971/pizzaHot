@@ -51,6 +51,16 @@ class CuisinierController extends Controller
 	{
 		$comprod = $this->getDoctrine()->getRepository('OCPlatformBundle:CommandeProduit')->find($idComProd);
 		$comProd->setEtat(2);
+		$boo = 0;
+		$commande = $comprod.commande;
+		foreach($commande.produit as prod)
+		{
+			if(prod.etat != 2)
+				$boo = -1;
+		}
+		if($boo == 0)
+			$commande->setEtat(2);
+		
 		return $this->redirectToRoute('oc_pizzeria_cuisinier_index');
 	}
 }
