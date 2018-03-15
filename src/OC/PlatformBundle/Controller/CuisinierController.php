@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Cuisinier controller.
+ * Commande controller.
  *
  * @Route("commande")
  */
